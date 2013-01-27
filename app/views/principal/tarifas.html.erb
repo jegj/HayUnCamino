@@ -1,0 +1,45 @@
+<h1><%= @titulo %></h1>
+<p><b>Hay Un Camino</b> maneja los precios en base al destino , en la siguiente tabla puede ver y buscar los precios de los destinos que ofrecemos.</p>
+
+<table id ="tarifas_rutas">
+	<thead>
+		<tr>
+			<th>Destino</th>
+			<th>Costo(Bsf)</th>
+			<th>Duracion.Prom(Hrs)</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @rutas.each do |ruta| %>
+			<tr>
+				<td><%= ruta.destino %></td>
+				<td><%= ruta.costo %></td>
+				<td><%= ruta.tiempo_prom_duracion %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+
+
+
+
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+
+<p>Aparte de los precios por destino<b>Hay Un Camino</b> añade un porcentaje adicional al costo al escoger cualquiera de estas categorias y el peso y volumen de los productos:</p>
+
+<ul>
+	<li><b>Productos:</b>Peso*Volumen*10.</li>
+	<li><b>Fragil</b>: 10% adicional al precio prodcuto.</li>
+	<li><b>Envio Rapido</b>: 20% adicional al prectio <b>Total</b> del envio.</li>
+</ul>
+
+<p></p>
+
+<p><b>Hay Un Camino</b> tambien ofrece descuentos dependiendo de dos cosas:</p>
+<ul>
+	<li>Dias Especificos en que a cada cliente se le hace un descuento en su cosumo total</li>
+	<li>Por cliente recurrentes , a mayor cantidad de envios realizados con nostros podras obtener grandes descuentos<b>Aprovecha!</b>.</li>
+</ul>

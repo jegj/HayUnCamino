@@ -1,0 +1,50 @@
+<h1><%= @titulo %> </h1>
+<p>Llene el siguiente formulario para registrar una nueva ruta en el sistema.Recuerde que las rutas se guardan en base al destino.</p>
+<p></p>
+<p></p>
+<%= error_messages_for :ruta %>
+
+<%= form_tag ({:action=>"guardar_ruta"}) do %>
+	<%= label_tag(:destino,"Destino:") %>
+	<%= image_tag("ruta.jpeg",:class=>"imagen_vista")%>
+	<br>
+
+	<%= text_field(:ruta,:destino)%>
+	<i>Ejm:Distrito Capital</i>
+	<p></p>
+	<p></p>
+	<%= label_tag(:capital,"Capital:") %>
+	<br>
+	<%= text_field(:ruta,:capital)%>
+	<i>Ejm:Caracas</i>
+	<p></p>
+	<p></p>
+	
+	<%= label_tag(:costo,"Costo:") %>
+	<br>
+	<%= text_field(:ruta,:costo)%>
+	<i>Ejm:300(Bsf)</i>
+	<p></p>
+	<p></p>
+	<%= label_tag(:tiempo_prom_duracion,"Tiempo Promedio Duracion:") %>
+	<br>
+	<%= text_field(:ruta,:tiempo_prom_duracion)%>
+	<i>Ejm:40(hrs)</i>
+	<p></p>
+	<p></p>
+	<p></p>
+	<p></p>
+	<small>
+		<%= submit_tag  "Guardar" ,:class=>"boton"%>
+	</small>
+	<p></p>
+<% end %>	
+	<p></p>
+	<p></p>
+  <small>
+		<%= button_to  "Atras" ,{:action=>"index"},:class=>"boton"
+		%>
+	</small>
+
+
+

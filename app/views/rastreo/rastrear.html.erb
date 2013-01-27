@@ -1,0 +1,104 @@
+<h1>Rastreo de Paquetes</h1>
+<h2><%= @titulo%></h2>
+<p></p>
+<p></p>
+<% if @solicitud and @resultado %>
+	<!--Mostrar Informacion de la Solicitud-->
+	<!--Script para el Google maps-->
+	<script src="https://maps.google.com/maps?file=api&amp;v=2&amp;key=AIzaSyDNuokV4uhdkGyzrIGHK2q3xoorJ0PgWwg&sensor=true"
+            type="text/javascript">
+   </script>
+
+    <script type="text/javascript">
+
+    function initialize() {
+      if (GBrowserIsCompatible()) {
+        var map = new GMap2(document.getElementById("mapa"));
+        map.setCenter(new GLatLng(<%=@resultado%>), 13);
+        map.openInfoWindow(map.getCenter(),
+                   document.createTextNode("Su paquete esta aquí!"));
+        map.setUIToDefault();
+      }
+    }
+
+    </script>
+
+  </p>
+  <div>
+		<h3>Leyenda:</h3>
+		<table class="descripcion_informacion">
+			<tr>
+				<td>
+					<img class="status_paquete" src="/assets/paquete_llego.png" alt="Paquete_llego"></img>
+					<b>Despachado</b>
+				</td>
+				<td>
+					<img class="status_paquete" src="/assets/paquete_en_despacho.png" alt="Paquete_en despacho"></img>
+					<b>En Proceso</b>
+				</td>	
+				<td>
+					<img class="status_paquete" src="/assets/paquete_no_procesado.png" alt="Paquete_no_procesado"></img>
+					<b>No Procesado</b>
+				</td>
+			</tr>
+		</table>
+	</div>
+  <p></p>
+  <p></p>
+  <p><b>Información Básica del Paquete:</b>
+	<div id="mapa"></div>
+
+	<div class="descripcion">
+		<h3>Información Basica</h3>
+		<p></p>
+		<table class="descripcion_informacion">
+			<tr>
+				<td><b>Id-Paquete:</b></td>
+				<td><%=@paquete%></td>
+			</tr>
+			<tr>
+			</tr>
+			<tr>
+				<td><b>Fecha.Venc:</b></td>
+				<td><%=@solicitud.fecha_vencimiento%></td>
+			</tr>
+			<tr>
+				<td><b>Destino:</b></td>
+				<td><%=@ciudad.destino%></td>
+			</tr>
+			<tr>
+				<td><b>Solicitante:</b></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><b>Estado:</b></td>
+				<td>
+					<% if @solicitud.estado.eql?("Despachado")%>
+						<img class="status_paquete" src="/assets/paquete_llego.png" alt="Paquete_llego"></img>
+					<%end%>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<p></p>
+	<p></p>
+	<p></p>
+	<p></p>
+	
+
+
+<%else%>
+	<div>
+		<p>Para mas información visité la sección de Preguntas Frecuentes(FAQ) o revise el área de solicitudes, donde se muestran todas las solicitudes procesadas por Hay Un Camino</p>
+	</div>
+	<p></p>
+	<p></p>
+	<p></p>
+	<div class="alerta">
+		<p><%="Lo sentimos, no se puede encontrar la solicitud con el identifcador #{@paquete }"%></p>
+	</div>
+	<div align="center">
+	<%= image_tag("no_encontrado.jpeg",:class=>"imagen_vista_centro")%>
+	</div>
+
+<%end%>

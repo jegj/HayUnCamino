@@ -1,0 +1,74 @@
+ <h1><%= @titulo %></h1>     
+
+<%=error_messages_for :usuario %> 
+
+<%= form_tag ({:action=>"crear_usuario"}) do %>
+
+  <%= label_tag(:Nombre,"Nombre de Usuario:") %>
+  <br>
+
+  <p><%= text_field(:usuario,:nombre)%>
+    <br>
+    <font color="0080FF" size="2">
+      Puede tener minimo 6 caracteres.
+    </font>
+  </p>
+
+  <%= label_tag(:Clave,"Clave:") %>
+  <br>
+
+  <p>
+    <%= password_field(:usuario,:clave)%>
+    <br>
+    <font color="#0080FF" size="2">
+      Debe tener por lo menos 6 caracteres alfanumericos.
+    </font>
+  </p>
+
+  <%= label_tag(:Clave_confirmation,"Repetir Clave:") %>
+
+  <br>
+
+  <p>
+    <%= password_field(:usuario,:clave_confirmation)%>
+    <br>
+    <font color="#0080FF" size="2">
+    Debe tener por lo menos 6 caracteres alfanumericos.
+    </font>
+  </p>  
+  <%= label_tag(:RIF,"RIF:") %>
+  <br>
+  <p>
+    <%= text_field(:usuario,:rif)%>
+    <br>
+    <font color="#0080FF" size="2">
+      Solo coloque el numero del RIF sin la letras.
+    </font>
+  </p>
+
+  <%= label_tag(:Direccion,"Direccion:") %>
+  <br>
+
+  <p>
+    <%= text_field(:usuario,:direccion)%>
+    <br>
+    <font color="#0080FF" size="2">
+      Debe tener minimo 15 caracteres.
+    </font>
+  </p>
+
+  <%= label_tag(:Correo,"Correo:") %>
+  <br>
+
+  <p>
+    <%= text_field(:usuario,:correo)%>
+    <br>
+    <font color="#0080FF" size="2">
+      Debe seguri con el formato aaa123@algo.com
+    </font>
+  </p>
+  <%= submit_tag  "Registrarse" ,:class=>"boton"%>
+  <p></p>
+
+
+<% end %>

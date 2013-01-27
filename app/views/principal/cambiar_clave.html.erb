@@ -1,0 +1,48 @@
+<h1><%= @titulo %></h1>  
+
+<%=error_messages_for :usuario %>
+
+<%= form_tag ({:action=>"cambiando_clave"}) do %>
+
+<%= label_tag(:clave_vieja,"Inserte Clave Vieja") %>
+  <br>
+
+  <p><%= password_field(:usuario, :clave_vieja)%>
+    <br>
+    <font color="0080FF" size="2">
+           Debe tener por lo menos 6 caracteres alfanumericos.
+    </font>
+  </p>
+
+  <%= label_tag(:Clave,"Clave Nueva:") %>
+  <br>
+
+  <p>
+    <%= password_field(:usuario, :Clave)%>
+    <br>
+    <font color="#0080FF" size="2">
+      Debe tener por lo menos 6 caracteres alfanumericos.
+    </font>
+  </p>
+
+  <%= label_tag(:Clave_confirmation,"Repetir Clave Nueva:") %>
+
+  <br>
+
+  <p>
+    <%= password_field(:usuario,:Clave_confirmation)%>
+    <br>
+    <font color="#0080FF" size="2">
+    Debe tener por lo menos 6 caracteres alfanumericos.
+    </font>
+  </p>  
+  <%= submit_tag  "Guardar" ,:class=>"boton", :confirm => "Esta usted seguro que quiere cambiar su clave?" %>
+  <p></p>
+  
+<% end %>
+
+
+  <%= button_to  "volver atras" ,{:action=>"index"},:class=>"boton"
+    %>
+
+  <p></p>

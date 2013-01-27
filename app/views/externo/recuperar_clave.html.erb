@@ -1,0 +1,12 @@
+<h1><%= @titulo %></h1>
+
+<p>Para recuperar su contraseña, indique su número de RIF.</p> 
+ <%= form_tag ({:action=>"recuperar"}) do %> 
+    <p></p>
+    <%= label_tag(:rif,"RIF:") %>
+    <%= text_field_tag(:rif)%>
+    <p></p>
+    <br>
+    <%= submit_tag  "Recuperar",:class =>"boton" %>
+
+ <% end %>

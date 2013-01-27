@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HayUnCamino</title>
+  <title>Distribuidora Hay Un Camino</title>
+  <meta name="description" content="free website template" />
+  <meta name="keywords" content="enter your keywords here" />
+  <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+  <div id="header_container">  
+    <div id="header">
+
+	  <div id="banner">
+	    <h1><span></span>Hay un Camino</h1>
+	  </div>
+	  <!--close banner-->	
+
+	  <div id="banner_slogan">
+	    <h2>
+	    	<i>Siempre encontraremos tu destino</i>
+	    </h2>
+	  </div>
+	  <!--close banner_slogan-->	
+     <div id="menubar">
+        <ul id="menu">
+          <li>
+            <%= link_to "Inicio", :controller=>"externo",:action=>"index"%>
+          </li>
+          <li><a href="#">Solicitudes</a></li>
+          <li>
+            <%= link_to "Tarifas", :controller=>"principal",:action=>"tarifas"%>
+          </li>
+          <li>
+            <li>
+            <%= link_to "FAQ", :controller=>"externo",:action=>"preguntas"%>
+          </li>
+          </li>
+          <li>
+            <%= link_to "Contactenos", :controller=>"principal",:action=>"contactenos"%>
+          </li>
+        </ul>
+      </div>
+      <!--close menubar-->  
+    </div>
+    <!--close header-->  
+  </div>
+  <!--close header_container-->  
+  <div id="main">
+	<div id="site_content">	
+	  <div class="sidebar_container"><div class="sidebar">
+      <div class="sidebar">  
+        <h2>Bienvenido</h2>
+        <div class="sidebar_item">
+            <% if session[:usuario_sesion]   %>
+              <p>
+                <b>Usuario: <%= session[:usuario_sesion].nombre %></b> 
+              </p>
+            <p></p>
+            <%= link_to " Cerrar Sesion", {:controller=>"principal",:action =>"cerrar_sesion" },:class=>"link_cerrar"%>      
+            <% end %>
+        </div>
+      </div>
+      <!--close sidebar_item--> 
+    </div>       
+
+  	<!--close sidebar--> 
+      <div class="sidebar">    		
+      	<h2>Calendario</h2>
+		  <div class="sidebar_item">
+            <div id ="datepicker"></div>
+      </div>
+      <!--close sidebar_item--> 
+    </div>
+    <!--close sidebar-->  
+		<div class="sidebar">
+      <h2>Rastrear</h2>
+		  <div class="sidebar_item">
+				 <%= form_tag ({:controller=>"rastreo",:action=>"rastrear"}) do %>
+          <%= label_tag(:id_paquete,"Id Paquete:") %>
+            <p></p>
+            <p></p>
+          <%= text_field_tag(:id_paquete)%>
+          <p></p>
+          <%= submit_tag  "Rastrear" ,:class=>"boton"%>
+         <% end %>
+				<!--close button_small-->
+      </div>
+      <!--close sidebar_item--> 
+    </div>
+    <!--close sidebar-->  
+	</div>
+	<!--close sidebar_container-->
+
+	<div id="content">
+      <% if flash[:error] %>
+        <div class="error">
+          <%= flash[:error] %>
+        </div>
+      <% end %>
+      <% if flash[:exito] %>
+        <div class="exito">
+          <%= flash[:exito] %>
+        </div>
+      <% end %>
+   <%= yield %>
+
+		<!--   <h1> Hay un Camino, Tu solucion de distribucion </h1>
+<!--Empieza AQUI LA IMAGEN--
+        <div style="float:right;">  
+	    <ul class="slideshow">
+              <li class="show"><img width="600" height="200" src="images/home_1.jpg" alt="Siempre los primeros" /></li>
+              <li><img width="600" height="200" src="images/home_2.jpg" alt="Seguridad, Rapidez y Constancia" /></li>
+            </ul> 
+          </div>
+<!--HASTA AQUI LA IMAGEN--
+<p>Hay un camino es una empresa de distribucion que surge de la necesidad de alternativas de trasnporte. Prestando un servicio agil, rapido y confiable... </p>
+		
+  </div>
+  <!--close content-->
+</div>
+<!--close site_content-->    
+</div>
+<!--close main--> 
+  <div id="footer_container">     
+		<div id="footer">
+     <p>Derechos reservados por Distribuidora Hay un Camino 2012 </p>
+    </div><!--close footer-->
+  </div><!--close footer_container-->  
+<div style="margin: 1em 0 3em 0; text-align: center;">
+</div>
+</body>
+</html>

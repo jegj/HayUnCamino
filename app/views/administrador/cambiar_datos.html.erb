@@ -1,0 +1,46 @@
+<h1><%= @titulo %></h1>
+
+<%=error_messages_for :administrador %>
+<%= form_tag ({:action=>"cambiando_datos"}) do %>
+	<%= image_tag("admin.jpeg",:class=>"imagen_vista")%>
+
+  <%= label_tag(:nombre,"Nombre:") %>
+  <br>
+
+  <p>
+    <%= text_field_tag(:nombre,@administrador.nombre )%>
+    <br>
+    <font color="#0080FF" size="2">
+      Debe tener minimo 15 caracteres.
+    </font>
+  </p>
+
+  <%= label_tag(:apellido,"Apellido:") %>
+  <br>
+
+  <p>
+    <%= text_field_tag(:apellido,@administrador.apellido)%>
+    <br>
+    <font color="#0080FF" size="2">
+      Debe tener minimo 15 caracteres.
+    </font>
+  </p>
+
+  <%= label_tag(:correo,"Correo:") %>
+  <br>
+
+  <p>
+    <%= text_field_tag(:correo, @administrador.correo)%>
+    <br>
+    <font color="#0080FF" size="2">
+      Debe seguri con el formato aaa123@algo.com
+    </font>
+  </p>
+  <%= submit_tag  "Guardar" ,:class=>"boton", :confirm => "Esta usted seguro que quiere cambiar su datos?" %>
+  <p></p>
+  
+
+<% end %>
+
+<%= button_to  "volver atras" ,{:action=>"listo_admin"},:class=>"boton"
+    %>

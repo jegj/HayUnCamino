@@ -1,0 +1,24 @@
+<h1><%=@titulo %></h1>
+
+<%= image_tag("cliente.jpeg",:class=>"imagen_vista")%>
+<p>Seleccione alguna de las siguientes opciones: </p>
+
+		<%= button_to  "Ver Estado de mis Solicitudes" ,{:action=>"index"},:class=>"boton2"%>
+		<p></p>
+		<p></p>
+		<%= button_to  "Ver Estado de las facturas" ,{:action=>"index"},:class=>"boton2"
+		%>
+		<p></p>
+		<p></p>
+		<%= button_to  "Reportes" ,{:action=>"index"},:class=>"boton2"
+		%>
+		<p></p>
+		<p></p>
+		<%= button_to  "Cambiar mis datos" ,{:action=>"cambiar_datos"},:class=>"boton2"
+		%>
+		<p></p>
+		<p></p>
+		<%= button_to  "Cambiar mis Clave" ,{:action=>"cambiar_clave"},:class=>"boton2"
+		%>
+
+

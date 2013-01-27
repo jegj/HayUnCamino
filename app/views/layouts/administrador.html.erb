@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HayUnCamino</title>
+  <title>Distribuidora Hay Un Camino</title>
+  <meta name="description" content="free website template" />
+  <meta name="keywords" content="enter your keywords here" />
+  <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+
+
+<body>
+  <div id="header_container">  
+      <div id="header">
+
+    	  <div id="banner">
+    	    <h1><span></span>Hay un Camino</h1>
+    	  </div>
+  	  <!--close banner-->	
+
+    	  <div id="banner_slogan">
+    	    <h2>
+    	    	<i>Siempre encontraremos tu destino</i>
+    	    </h2>
+    	  </div>
+  	  
+      </div>
+    <!--close header-->  
+  </div>
+  <!--close header_container-->  
+
+  <div id="main">
+  	<div id="site_content">	
+    	<div id="content_admin">
+            <% if flash[:error] %>
+              <div class="error">
+                <%= flash[:error] %>
+              </div>
+            <% end %>
+            <% if flash[:exito] %>
+              <div class="exito">
+                <%= flash[:exito] %>
+              </div>
+            <% end %>
+            <%= yield %>   
+      </div>
+      <!--close content-->
+    </div>
+<!--close site_content-->    
+</div>
+<!--close main--> 
+  <div id="footer_container">     
+		<div id="footer">
+     <p>Derechos reservados por Distribuidora Hay un Camino 2012 </p>
+    </div><!--close footer-->
+  </div><!--close footer_container-->  
+<div style="margin: 1em 0 3em 0; text-align: center;">
+</div>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HayUnCamino</title>
+  <title>Distribuidora Hay Un Camino</title>
+  <meta name="description" content="free website template" />
+  <meta name="keywords" content="enter your keywords here" />
+  <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body onload="initialize()" onunload="GUnload()">
+  <div id="header_container">  
+    <div id="header">
+
+    <div id="banner">
+      <h1><span></span>Hay un Camino</h1>
+    </div>
+    <!--close banner--> 
+
+    <div id="banner_slogan">
+      <h2>
+        <i>Siempre encontraremos tu destino</i>
+      </h2>
+    </div>
+    <!--close banner_slogan-->  
+      <div id="menubar">
+        <ul id="menu">
+          <li id="inicio">
+            <%= link_to "Inicio", :controller=>"externo",:action=>"index"%>
+          </li>
+          <li><a href="#">Solicitudes</a></li>
+          <li>
+            <%= link_to "Tarifas", :controller=>"externo",:action=>"tarifas"%>
+          </li>
+          <li>
+            <%= link_to "FAQ", :controller=>"externo",:action=>"preguntas"%>
+          </li>
+          <li>
+            <%= link_to "Contactenos", :controller=>"externo",:action=>"contactenos"%>
+          </li>
+        </ul>
+      </div>
+      <!--close menubar-->  
+    </div>
+    <!--close header-->  
+  </div>
+  <!--close header_container-->  
+  <div id="main">
+  <div id="site_content"> 
+    <div class="sidebar_container">       
+    <div class="sidebar">
+      <h2>Autenticar</h2>
+      <div class="sidebar_item">
+        
+         <%= form_tag ({:action=>"autenticar_usuario"}) do %>
+            <%= label_tag(:usuario,"Usuario:") %>
+            <br>
+            <%= text_field_tag(:usuario)%>
+            <p></p>
+            <p></p>
+            <%= label_tag(:clave,"Clave:") %>
+            <br>
+            <%= password_field_tag(:clave)%>
+            <p></p>
+            <small>
+              <%= submit_tag  "Entrar" ,:class=>"boton"%>
+            </small>
+            <p></p>
+            <%= link_to "Registrarse", {:action=>"registrar_usuario"},:class=>"link_inicial" %>
+          <% end %>
+
+        <p></p>
+         <%= link_to "Olvido su Contraseña", {:action=>"recuperar_clave"},:class=>"link_inicial" %>
+        <p></p>
+      </div>
+      <!--close sidebar_item--> 
+    </div>
+    <!--close sidebar-->        
+    <div class="sidebar">
+        <h2>Calendario</h2>
+      <div class="sidebar_item">
+            <div id ="datepicker"></div>
+      </div>
+      <!--close sidebar_item--> 
+    
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <h2>Rastrear</h2>
+      <div class="sidebar_item">
+         <%= form_tag ({:controller=>"rastreo",:action=>"rastrear"}) do %>
+          <%= label_tag(:id_paquete,"Id Paquete:") %>
+            <p></p>
+            <p></p>
+          <%= text_field_tag(:id_paquete)%>
+          <p></p>
+          <%= submit_tag  "Rastrear" ,:class=>"boton"%>
+         <% end %>
+        <!--close button_small-->
+      </div>
+      <!--close sidebar_item--> 
+    </div>
+    <!--close sidebar-->  
+  </div>
+  <!--close sidebar_container-->
+
+  <div id="content">
+      <% if flash[:error] %>
+        <div class="error">
+          <%= flash[:error] %>
+        </div>
+      <% end %>
+      <% if flash[:exito] %>
+        <div class="exito">
+          <%= flash[:exito] %>
+        </div>
+      <% end %>
+    <%= yield %>
+  </div>
+   
+</div>
+<!--close site_content-->    
+</div>
+<!--close main--> 
+  <div id="footer_container">     
+    <div id="footer">
+     <p>Derechos reservados por Distribuidora Hay un Camino 2012 </p>
+    </div><!--close footer-->
+  </div><!--close footer_container-->  
+<div style="margin: 1em 0 3em 0; text-align: center;">
+</div>
+</body>
+</html>
