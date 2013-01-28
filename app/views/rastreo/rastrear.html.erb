@@ -57,8 +57,6 @@
 				<td><%=@paquete%></td>
 			</tr>
 			<tr>
-			</tr>
-			<tr>
 				<td><b>Fecha.Venc:</b></td>
 				<td><%=@solicitud.fecha_vencimiento%></td>
 			</tr>
@@ -68,7 +66,9 @@
 			</tr>
 			<tr>
 				<td><b>Solicitante:</b></td>
-				<td></td>
+				<td>
+					<%=@comercio.nombre %>
+				</td>
 			</tr>
 			<tr>
 				<td><b>Estado:</b></td>
