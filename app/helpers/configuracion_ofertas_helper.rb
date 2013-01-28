@@ -1,0 +1,2 @@
+module ConfiguracionOfertasHelper
+end
