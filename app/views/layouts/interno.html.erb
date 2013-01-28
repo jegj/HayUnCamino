@@ -31,12 +31,16 @@
           <li>
             <%= link_to "Inicio", :controller=>"externo",:action=>"index"%>
           </li>
-          <li><a href="#">Solicitudes</a></li>
+          <li>
+            <a href="#">Solicitudes</a>
+          </li>
           <li>
             <%= link_to "Tarifas", :controller=>"principal",:action=>"tarifas"%>
           </li>
           <li>
-            <li>
+            <%= link_to "Ofertas", :controller=>"configuracion_ofertas",:action=>"index"%>
+          </li>
+          <li>
             <%= link_to "FAQ", :controller=>"externo",:action=>"preguntas"%>
           </li>
           </li>
