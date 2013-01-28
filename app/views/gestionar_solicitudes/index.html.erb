@@ -1,0 +1,44 @@
+<h1><%= @titulo %> </h1>
+
+<p></p>
+<p></p>
+
+<table id ="solicitudes">
+	<thead>
+		<tr>
+			<th>Id-Solicitud</th>
+			<th>Estado</th>
+			<th>Fecha Vencimiento</th>
+			<th>Fecha Aprobado</th>
+			<th>Modificar Información</th>
+			<th>Eliminar</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @solicitudes.each do |solicitud| %>
+			<tr>
+				<td><%= solicitud.id_solicitudes %></td>
+				<td><%= solicitud.estado %></td>
+				<td><%= solicitud.fecha_vencimiento %></td>
+				<td><%= solicitud.fecha_aprobado %></td>
+				<td><%=link_to "Modificar" ,{:action=>"modificar_solicitud",:solicitud_id=>solicitud.id_solicitudes},:class=>"link_negro"%></td>
+
+				<td><%=link_to "Eliminar" ,{:action=>"eliminar_solicitud",:solicitud_id=>solicitud.id_solicitudes},:class=>"link_negro",:confirm=>"Esta usted seguro?"%></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<h2>Opciones:</h2>
+<p></p>
+<p></p>
+<small>
+	<%= button_to  "Atras" ,{:controller=>"administrador",:action=>"listo_admin"},:class=>"boton"
+	%>
+</small>
