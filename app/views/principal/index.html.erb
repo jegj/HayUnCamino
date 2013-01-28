@@ -1,7 +1,8 @@
 <h1><%=@titulo %></h1>
-
+<p></p>
 <%= image_tag("cliente.jpeg",:class=>"imagen_vista")%>
-<p>Seleccione alguna de las siguientes opciones: </p>
+<p>Seleccione su opción: </p>
+<p></p>
 
 		<%= button_to  "Ver mis Solicitudes" ,{:action=>"index"},:class=>"boton2"%>
 		<p></p>
@@ -18,7 +19,7 @@
 		%>
 		<p></p>
 		<p></p>
-		<%= button_to  "Cambiar mis Clave" ,{:action=>"cambiar_clave"},:class=>"boton2"
+		<%= button_to  "Cambiar mi Clave" ,{:action=>"cambiar_clave"},:class=>"boton2"
 		%>
 
 

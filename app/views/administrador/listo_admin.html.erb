@@ -2,11 +2,17 @@
 
 <p>Que deseas realizar:</p>
 <%= image_tag("admin.jpeg",:class=>"imagen_vista")%>
-<%= button_to  "Gestionar Cliente" ,{:controller=>"configuracion_usuarios",:action=>"index"},:class=>"boton2"%>
+		<%= button_to  "Gestionar Cliente" ,{:controller=>"configuracion_usuarios",:action=>"index"},:class=>"boton2"%>
 		<p></p>
 		<p></p>
-
+		<%= button_to  "Gestionar Solicitudes" ,{:controller=>"gestionar_solicitudes",:action=>"index"},:class=>"boton2"%>
+		<p></p>
+		<p></p>
 		<%= button_to  "Gestionar Rutas" ,{:controller=>"cofiguracion_rutas",:action=>"index"},:class=>"boton2"
+		%>
+		<p></p>
+		<p></p>
+		<%= button_to  "Gestionar Ofertas" ,{:controller=>"gestionar_ofertas",:action=>"index"},:class=>"boton2"
 		%>
 		<p></p>
 		<p></p>
@@ -22,8 +28,6 @@
 		%>
 		<p></p>
 		<p></p>
-		<%= button_to  "Gestionar Solicitudes" ,{:controller=>"gestionar_solicitudes",:action=>"index"},:class=>"boton2"%>
-		<p></p>
-		<p></p>
+		
 		<%= button_to  "Salir" ,{:action=>"cerrar_sesion_admin"},:class=>"boton2"
 		%>
