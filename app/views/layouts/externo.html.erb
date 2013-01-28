@@ -35,7 +35,7 @@
             <%= link_to "Tarifas", :controller=>"externo",:action=>"tarifas"%>
           </li>
           <li>
-            <%= link_to "Ofertas", :controller=>"configuracion_ofertas",:action=>"index"%>
+            <%= link_to "Ofertas", :controller=>"configuracion_ofertas",:action=>"otro"%>
           </li>
           <li>
             <%= link_to "FAQ", :controller=>"externo",:action=>"preguntas"%>
@@ -57,7 +57,7 @@
       <h2>Autenticar</h2>
       <div class="sidebar_item">
         
-         <%= form_tag ({:action=>"autenticar_usuario"}) do %>
+         <%= form_tag ({:controller=>"externo",:action=>"autenticar_usuario"}) do %>
             <%= label_tag(:usuario,"Usuario:") %>
             <br>
             <%= text_field_tag(:usuario)%>

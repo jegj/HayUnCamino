@@ -2,7 +2,7 @@ class RastreoController < ApplicationController
 	layout :resolver_layaout
 
 	def rastrear
-		@titulo="Siga de cerca su paquete con el servicio de rastreo de proporcionado por Hay Un Camino!"
+		@titulo="Rastreo de Paquetes"
 		unless params[:id_paquete]
 			flash[:error]="Faltan Parametros"
 			bitacora "Faltan Parametros"

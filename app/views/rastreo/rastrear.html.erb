@@ -1,5 +1,4 @@
-<h1>Rastreo de Paquetes</h1>
-<h2><%= @titulo%></h2>
+<h1><%= @titulo%></h1>
 <p></p>
 <p></p>
 <% if @solicitud and @resultado %>
@@ -75,6 +74,10 @@
 				<td>
 					<% if @solicitud.estado.eql?("Despachado")%>
 						<img class="status_paquete" src="/assets/paquete_llego.png" alt="Paquete_llego"></img>
+					<%elsif @solicitud.estado.eql?("Por Despachar")%>
+							<img class="status_paquete" src="/assets/paquete_en_despacho.png" alt="Paquete_por_despachar"></img>
+					<%else%>
+							<img class="status_paquete" src="/assets/paquete_no_procesado.png" alt="Paquete_no_procesado"></img>
 					<%end%>
 				</td>
 			</tr>
@@ -85,8 +88,6 @@
 	<p></p>
 	<p></p>
 	
-
-
 <%else%>
 	<div>
 		<p>Para mas información visité la sección de Preguntas Frecuentes(FAQ) o revise el área de solicitudes, donde se muestran todas las solicitudes procesadas por Hay Un Camino</p>
