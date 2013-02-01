@@ -21,16 +21,17 @@ class RastreoController < ApplicationController
 		@solicitud=Solicitudes.buscar_solicitud(@paquete)
 
 		if(@solicitud)
-			ruta=@solicitud.ruta_id_ruta
+			ruta=@solicitud.ruta_id_actual
 			pais="Venezuela"
 			if @ciudad=Ruta.find(ruta)
 				union_ubicacion="#{@ciudad.capital},#{pais}"
 				comercio_id=UsuarioFacturaSolicitud.where(:solicitudes_id_solicitudes=>@paquete).first.usuario_id_usuario
 				@comercio=Usuario.find(comercio_id)
-				busqueda_coordenadas=Geocoder.search(union_ubicacion)
-				latitud=busqueda_coordenadas[0].latitude 
-				longitud=busqueda_coordenadas[0].longitude
-				@resultado="#{latitud},#{longitud}"
+				if busqueda_coordenadas=Geocoder.search(union_ubicacion)
+					latitud=busqueda_coordenadas[0].latitude 
+					longitud=busqueda_coordenadas[0].longitude
+					@resultado="#{latitud},#{longitud}"
+				end
 			end
 		end
 	end

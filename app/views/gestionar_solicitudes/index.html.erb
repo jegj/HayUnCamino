@@ -8,9 +8,9 @@
 		<tr>
 			<th>Id-Solicitud</th>
 			<th>Estado</th>
-			<th>Fecha Vencimiento</th>
-			<th>Fecha Aprobado</th>
-			<th>Modificar Información</th>
+			<th>Ubicación Actual</th>
+			<th>Ubicación Final</th>
+			<th>Actualizar Información</th>
 			<th>Eliminar</th>
 		</tr>
 	</thead>
@@ -19,9 +19,9 @@
 			<tr>
 				<td><%= solicitud.id_solicitudes %></td>
 				<td><%= solicitud.estado %></td>
-				<td><%= solicitud.fecha_vencimiento %></td>
-				<td><%= solicitud.fecha_aprobado %></td>
-				<td><%=link_to "Modificar" ,{:action=>"modificar_solicitud",:solicitud_id=>solicitud.id_solicitudes},:class=>"link_negro"%></td>
+				<td><%= solicitud.obtener_destino_actual %></td>
+				<td><%= solicitud.obtener_destino %></td>
+				<td><%=link_to "Actualizar" ,{:action=>"actualizar",:solicitud_id=>solicitud.id_solicitudes},:class=>"link_negro"%></td>
 
 				<td><%=link_to "Eliminar" ,{:action=>"eliminar_solicitud",:solicitud_id=>solicitud.id_solicitudes},:class=>"link_negro",:confirm=>"Esta usted seguro?"%></td>
 			</tr>

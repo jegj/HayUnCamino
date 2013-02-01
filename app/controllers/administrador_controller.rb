@@ -105,5 +105,9 @@ class AdministradorController < ApplicationController
 		@titulo="Gestor de Bitacoras"
 		@bitacoras=Bitacora.all
 	end
+
+	def reportes
+		@titulo="hola"
+	end
 	
 end
