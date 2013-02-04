@@ -6,4 +6,7 @@ class Ruta < ActiveRecord::Base
   validates :costo,:numericality => true
   validates :destino ,:uniqueness => true
 
+  def self.obtener_destino(id)
+  	Ruta.where(:id_ruta=>id).first.destino
+  end
 end

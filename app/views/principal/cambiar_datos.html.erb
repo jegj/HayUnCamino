@@ -1,46 +1,47 @@
 <h1><%= @titulo %></h1>     
 
 <%=error_messages_for :usuario %> <!-- Esto es en el controlador el @usuario -->
-
-<%= form_tag ({:action=>"cambiando_datos"}) do %>
-  <%= label_tag(:Usuario,"Nombre de Usuario") %>
-  <br>
-
-  <p>
-    <%= text_field_tag(:Usuario,  @usuario.nombre )%>
+<div class="inputArea">
+  <%= form_tag ({:action=>"cambiando_datos"}) do %>
+    <%= label_tag(:Usuario,"Nombre de Usuario") %>
     <br>
-    <font color="#0080FF" size="2">
-      Debe tener minimo 15 caracteres.
-    </font>
-  </p>
 
-  <%= label_tag(:Direccion,"Direccion:") %>
-  <br>
+    <p>
+      <%= text_field_tag(:Usuario,  @usuario.nombre )%>
+      <font class="ejemplo">
+        Debe tener minimo 15 caracteres.
+      </font>
+    </p>
 
-  <p>
-    <%= text_field_tag(:Direccion,  @usuario.direccion)%>
+    <%= label_tag(:Direccion,"Direccion:") %>
     <br>
-    <font color="#0080FF" size="2">
-      Debe tener minimo 15 caracteres.
-    </font>
-  </p>
 
-  <%= label_tag(:Correo,"Correo:") %>
-  <br>
+    <p>
+      <%= text_field_tag(:Direccion,  @usuario.direccion)%>
+      <font class="ejemplo">
+        Debe tener minimo 15 caracteres.
+      </font>
+    </p>
 
-  <p>
-    <%= text_field_tag(:Correo, @usuario.correo)%>
+    <%= label_tag(:Correo,"Correo:") %>
     <br>
-    <font color="#0080FF" size="2">
-      Debe seguri con el formato aaa123@algo.com
-    </font>
+
+    <p>
+      <%= text_field_tag(:Correo, @usuario.correo)%>
+      <font class="ejemplo">
+        Debe seguri con el formato aaa123@algo.com
+      </font>
   </p>
-  <%= submit_tag  "Guardar" ,:class=>"boton", :confirm => "Esta usted seguro que quiere cambiar su datos?" %>
-  <p></p>
-  
+    <p></p>
+    <p></p>
+    <%= submit_tag  "Guardar" ,:class=>"boton", :confirm => "Esta usted seguro que quiere cambiar su datos?" %>
+    <p></p>
+    <p></p>
+    <p></p>
+    
 
-<% end %>
+  <% end %>
 
-<%= button_to  "volver atras" ,{:action=>"index"},:class=>"boton"
-    %>
-  
+  <%= button_to  "volver atras" ,{:action=>"index"},:class=>"boton"
+      %>
+</div>

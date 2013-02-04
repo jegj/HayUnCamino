@@ -28,9 +28,17 @@ class RastreoController < ApplicationController
 				comercio_id=UsuarioFacturaSolicitud.where(:solicitudes_id_solicitudes=>@paquete).first.usuario_id_usuario
 				@comercio=Usuario.find(comercio_id)
 				if busqueda_coordenadas=Geocoder.search(union_ubicacion)
-					latitud=busqueda_coordenadas[0].latitude 
-					longitud=busqueda_coordenadas[0].longitude
-					@resultado="#{latitud},#{longitud}"
+					if busqueda_coordenadas[0]!=nil
+						latitud=busqueda_coordenadas[0].latitude 
+						longitud=busqueda_coordenadas[0].longitude
+						@resultado="#{latitud},#{longitud}"
+					else
+						@solicitud=nil
+						@resultado=nil
+					end
+				else
+					@solicitud=nil
+					@resultado=nil
 				end
 			end
 		end

@@ -1,0 +1,93 @@
+<h1><%= @titulo%></h1>
+<p></p>
+<p><b>Información detallada de sus Solicitudes</b></p>
+
+<table id="reporte_usuario">
+	<thead>
+		<th>Id</th>
+		<th>Estado</th>
+		<th>Ruta</th>
+		<th>Ruta Actual</th>
+		<th>Monto</th>
+	</thead>
+	<% cont_despachado=0
+					 cont_por_despachar=0
+					 cont_no_procesado=0
+					 cont_rechazado=0
+	%>
+	<tbody>
+		<% @solicitudes.each do |id_solicitud|%>
+			<tr>
+				<% sol= Solicitudes.buscar_solicitud(id_solicitud)%>
+				
+				<td><%= id_solicitud%></td>
+				<%if(sol.estado.eql?("Rechazado"))%>
+					<td><font class="alerta_reporte"><%= sol.estado%></font></td>
+				<%else%>
+					<td><%= sol.estado%></td>
+				<%end%>
+
+				<% if sol.estado.eql?("Despachado") 
+					cont_despachado+=1
+					elsif sol.estado.eql?("Por Despachar")
+						cont_por_despachar+=1
+					elsif sol.estado.eql?("No Procesado")
+						cont_no_procesado=+1
+					elsif sol.estado.eql?("Rechazado")
+						cont_rechazado+=1
+					end
+				%>
+
+				<td><%= sol.obtener_destino%></td>
+				<td><%= sol.obtener_destino_actual%></td>
+				<td><%= sol.monto%></td>	
+			</tr>
+			<!-- Parte Grafica-->
+<script type="text/javascript" charset="utf-8">
+$(document).ready(function() {
+      chart1 = new Highcharts.Chart({
+         chart: {
+            renderTo: 'grafico_usuario',
+            type: 'bar'
+         },
+         title: {
+            text: 'Solicitudes'
+         },
+         xAxis: {
+            categories: ['Despachadas','Por Despachar', 'No Procesadas','Rechazadas']
+         },
+         yAxis: {
+            title: {
+               text: 'Cantidad'
+            }
+         },
+         series: [{
+            name: '<%= session[:usuario_sesion].nombre %>',
+            data: [<%="#{cont_despachado},#{cont_por_despachar},#{cont_no_procesado},#{cont_rechazado}"%>]
+         }]
+      });
+   });
+</script>
+<!-- FIN Parte Grafica-->
+		<%end%>
+	</tbody>
+</table>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p><b>Información Grafica:</b></p>
+
+
+<div id="grafico_usuario" class="grafico">
+</div>
+
+
+<h2>Opciones:</h2>
+<p></p>
+<small>
+	<%= button_to  "Atras" ,{:controller=>"principal",:action=>"index"},:class=>"boton"
+	%>
+</small>

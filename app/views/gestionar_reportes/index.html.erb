@@ -1,0 +1,30 @@
+<h1><%=@titulo%></h1>
+
+<p>¿ Que reporte quieres ver ?:</p>
+<%= image_tag("admin.jpeg",:class=>"imagen_vista")%>
+<%= button_to  "Solicitudes_Despachadas" ,{:action=>"solicitudes_despachadas"},:class=>"boton2"%>
+		<p></p>
+		<p></p>
+
+		<%= button_to  "Solicitudes_Pendientes" ,{:action=>"solicitudes_pendientes"},:class=>"boton2"
+		%>
+		<p></p>
+		<p></p>
+		<%= button_to  "Sol_Realizadas_Cliente" ,{:action=>"sol_realizadas_cliente"},:class=>"boton2"
+		%>
+		<p></p>
+		<p></p>
+		<%= button_to  "Destinos_Orde_Sol" ,{:action=>"destinos_orde_sol"},:class=>"boton2"
+		%>
+		<p></p>
+		<p></p>
+		<%= button_to  "Facturas_Ord_TCan" ,{:action=>"facturas_ord_tcan"},:class=>"boton2"
+		%>
+		<p></p>
+		<p></p>
+		<%= button_to  "Facturas_Vig_Ven_Cobrar" ,{:action=>"facturas_vig_ven_cobrar"},:class=>"boton2"
+		%>
+		<p></p>
+		<p></p>
+		<%= button_to  "Atras" ,{:controller=>"administrador",:action=>"listo_admin"},:class=>"boton2"
+		%>

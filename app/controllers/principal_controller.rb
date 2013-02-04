@@ -141,5 +141,21 @@ class PrincipalController < ApplicationController
 		@rutas=Ruta.all
 	end
 
+	def ofertas
+		@titulo="Ofertas"
+		@ofertas=Ofertas.all
+	end
+
+	def ver_mis_solicitudes
+		@titulo="Mis Solicitudes"
+		id_usuario=session[:usuario_sesion].id_usuario
+		@solicitudes=UsuarioFacturaSolicitud.where(:usuario_id_usuario=>id_usuario).collect {|x| x.solicitudes_id_solicitudes}
+	end
+
+	def ver_mis_facturas
+		@titulo="Mis Facturas"
+		id_usuario=session[:usuario_sesion].id_usuario
+		@facturas=UsuarioFacturaSolicitud.where(:usuario_id_usuario=>id_usuario).collect {|x| x.factura_id_factura}.uniq
+	end
 
 end

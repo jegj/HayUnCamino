@@ -1,0 +1,24 @@
+<h1><%= @titulo %></h1>
+
+<table id ="ofertas_usuario">
+	<thead>
+		<tr>
+			<th>Nombre Oferta</th>
+			<th>Descuento</th>
+			<th>Fecha de Inicio</th>
+			<th>Fecha de Fin</th>
+			<th>Modificar</th>
+			<th>Eliminar</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @ofertas.each do |oferta| %>
+			<tr>
+				<td><%= oferta.nombre_Ofertar %></td>
+				<td><%= oferta.descuento %>%</td>
+				<td><%= oferta.fecha_Inicio %></td>
+				<td><%= oferta.fecha_Fin   %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>

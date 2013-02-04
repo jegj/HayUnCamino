@@ -1,5 +1,20 @@
 # -*- encoding : utf-8 -*-
 HayUnCamino::Application.routes.draw do
+
+  get "gestionar_reportes/index"
+
+  get "gestionar_reportes/solicitudes_despachadas"
+
+  get "gestionar_reportes/solicitudes_pendientes"
+
+  get "gestionar_reportes/sol_realizadas_cliente"
+
+  get "gestionar_reportes/destinos_orde_sol"
+
+  get "gestionar_reportes/facturas_ord_tcan"
+
+  get "gestionar_reportes/facturas_vig_ven_cobrar"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

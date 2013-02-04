@@ -492,3 +492,8 @@ background-position: 10px center;
 .descripcion_informacion{
   border-spacing:10px;
 }
+
+.grafico{
+  width:90%;
+  height:300px;
+}

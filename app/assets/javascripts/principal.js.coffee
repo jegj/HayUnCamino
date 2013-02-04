@@ -3,3 +3,8 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 $	->
 		$(".boton2").button()
+
+$ ->
+		$("#reporte_usuario").dataTable()
+$ ->
+		$("#reporte_factura_usuario").dataTable()

@@ -1,0 +1,26 @@
+<h1><%= @titulo %></h1>
+<p></p>
+<p><b>Aprovecha las ofertas que ofrecemos todos los meses!</b></p>
+<p>Al utilizar nuestro servicios durante las fechas de promocion resiviras un porcentaje de descuento</p>
+<p></p>
+<p><b>Se manejan las siguientes ofertas:</b></p>
+<table id ="ofertas_usuario">
+	<thead>
+		<tr>
+			<th>Nombre Oferta</th>
+			<th>Descuento</th>
+			<th>Fecha de Inicio</th>
+			<th>Fecha de Fin</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @ofertas.each do |oferta| %>
+			<tr>
+				<td><%= oferta.nombre_Ofertar %></td>
+				<td><%= oferta.descuento %>%</td>
+				<td><%= oferta.fecha_Inicio %></td>
+				<td><%= oferta.fecha_Fin   %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>

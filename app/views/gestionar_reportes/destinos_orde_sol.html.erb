@@ -1,0 +1,68 @@
+<h1><%=@titulo%></h1>
+<p></p>
+<script type="text/javascript" charset="utf-8">
+$(function(){
+	new Highcharts.Chart({
+		chart:{
+			renderTo: "destino1"
+		},
+		title:{
+			text:"Destinos ordenados por solicitudes"
+		},
+	
+		xAxis:{
+			title:{
+				text:"Destinos"
+			}
+		},
+		yAxis:{
+			title:{
+				text:"Cantidad de Solicitudes"
+			}
+		},
+		series:[{
+			data:[3,5,9,7]
+		}]
+	});
+});
+</script>
+<div id="destino1" style="width:560px; height:300px;"></div>
+
+
+<p></p>
+<table id ="reportes_destinos">
+	<thead>
+		<tr>
+			<th>Id_Solicitudes</th>
+			<th>Destino</th>
+			<th>Cantidad de Solicitudes</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% b=@aux.to_a %>
+		<% c=b.size-1%>
+		<%for i in 0..c %>
+   		<%@query=Ruta.find(b[i][0]).destino%>
+   			<tr>
+   				<td><%=b[i][0]%></td>
+				<td><%=@query%></td>
+				<td><%=b[i][1]%></td>
+			</tr>
+		<%end%>
+		<% $end%>
+		
+	</tbody> 
+</table>
+<p></p>
+<p></p>
+<p></p>
+<h2>Opciones:</h2>
+<p></p>
+<small>
+	<%= button_to  "Atras" ,{:action=>"index"},:class=>"boton"
+	%>
+</small>
+<p></p>
+<small>
+<%= button_to "Descargar (PDF)", :format=> "pdf"%>
+</small>	

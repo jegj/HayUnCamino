@@ -4,3 +4,11 @@
 
 $ ->
 		$("#ofertas").dataTable()
+
+$ ->
+		$("#oferta_fecha_Inicio").datepicker
+			dateFormat: 'yy-mm-dd'
+
+$ ->
+		$("#oferta_fecha_Fin").datepicker
+			dateFormat: 'yy-mm-dd'

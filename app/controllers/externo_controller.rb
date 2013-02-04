@@ -155,4 +155,11 @@ class ExternoController < ApplicationController
 		@titulo="Tarifas"
 		@rutas=Ruta.all
 	end
+
+	def ofertas
+		@titulo="Ofertas"
+		@ofertas=Ofertas.all
+	end
+
+	
 end

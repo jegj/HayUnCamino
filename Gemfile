@@ -25,6 +25,7 @@ gem 'jquery-rails'
 gem 'nokogiri'
 gem 'rest-client', '~> 1.6.7'
 gem 'pdfkit'
+gem 'restfulie'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

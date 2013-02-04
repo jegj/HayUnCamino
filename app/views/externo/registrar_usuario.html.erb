@@ -1,15 +1,12 @@
  <h1><%= @titulo %></h1>     
-
+<div class="inputArea">
 <%=error_messages_for :usuario %> 
-
 <%= form_tag ({:action=>"crear_usuario"}) do %>
 
   <%= label_tag(:Nombre,"Nombre de Usuario:") %>
   <br>
-
   <p><%= text_field(:usuario,:nombre)%>
-    <br>
-    <font color="0080FF" size="2">
+    <font class="ejemplo">
       Puede tener minimo 6 caracteres.
     </font>
   </p>
@@ -19,8 +16,7 @@
 
   <p>
     <%= password_field(:usuario,:clave)%>
-    <br>
-    <font color="#0080FF" size="2">
+    <font class="ejemplo">
       Debe tener por lo menos 6 caracteres alfanumericos.
     </font>
   </p>
@@ -31,8 +27,7 @@
 
   <p>
     <%= password_field(:usuario,:clave_confirmation)%>
-    <br>
-    <font color="#0080FF" size="2">
+    <font class="ejemplo">
     Debe tener por lo menos 6 caracteres alfanumericos.
     </font>
   </p>  
@@ -40,8 +35,7 @@
   <br>
   <p>
     <%= text_field(:usuario,:rif)%>
-    <br>
-    <font color="#0080FF" size="2">
+    <font class="ejemplo">
       Solo coloque el numero del RIF sin la letras.
     </font>
   </p>
@@ -51,8 +45,7 @@
 
   <p>
     <%= text_field(:usuario,:direccion)%>
-    <br>
-    <font color="#0080FF" size="2">
+    <font class="ejemplo">
       Debe tener minimo 15 caracteres.
     </font>
   </p>
@@ -62,13 +55,14 @@
 
   <p>
     <%= text_field(:usuario,:correo)%>
-    <br>
-    <font color="#0080FF" size="2">
+    <font class="ejemplo">
       Debe seguri con el formato aaa123@algo.com
     </font>
   </p>
+  <p></p>
+  <p></p>
+  <p></p>
   <%= submit_tag  "Registrarse" ,:class=>"boton"%>
   <p></p>
-
-
 <% end %>
+</div>

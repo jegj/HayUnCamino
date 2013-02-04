@@ -1,0 +1,52 @@
+<h1><%= @titulo %> </h1>
+<p>Llene el siguiente formulario para registrar una nueva Oferta en el sistema.</p>
+<p></p>
+<p></p>
+<%= error_messages_for :oferta %>
+
+<%= form_tag ({:action=>"guardar_cambios_oferta"}) do %>
+
+	<%= hidden_field_tag(:oferta_id, @oferta.id_Ofertas) %>
+	
+	<%= label_tag(:nombre_Oferta,"Nombre de la Oferta:") %>
+	<%= image_tag("ruta.jpeg",:class=>"imagen_vista")%>
+	<br>
+
+	<%= text_field(:oferta,:nombre_Ofertar)%>
+	<i>Ejm:Buena Oferta</i>
+	<p></p>
+	<p></p>
+	<%= label_tag(:descuento,"Descuento:") %>
+	<br>
+	<%= text_field(:oferta,:descuento)%>
+	<i>Ejm:50</i>
+	<p></p>
+	<p></p>
+	
+	<%= label_tag(:fecha_Inicio,"Fecha de inicio:") %>
+	<br>
+	<%= text_field(:oferta,:fecha_Inicio)%>
+	<i>Ejm:2012-06-08</i>
+	<p></p>
+	<p></p>
+	<%= label_tag(:fecha_Fin,"Fecha de fin:") %>
+	<br>
+	<%= text_field(:oferta,:fecha_Fin)%>
+	<i>Ejm:2012-06-12</i>
+	<p></p>
+	<p></p>
+	<p></p>
+	<p></p>
+	<small>
+		<%= submit_tag  "Guardar" ,:class=>"boton"%>
+	</small>
+	<p></p>
+<% end %>	
+	<p></p>
+	<p></p>
+  <small>
+		<%= button_to  "Atras" ,{:controller=>"configuracion_ofertas",:action=>"index"},:class=>"boton"
+		%>
+	</small>
+
+

@@ -1,5 +1,5 @@
 <h1><%= @titulo %></h1>
-
+<div class="inputArea">
 <%=error_messages_for :administrador %>
 <%= form_tag ({:action=>"cambiando_datos"}) do %>
 	<%= image_tag("admin.jpeg",:class=>"imagen_vista")%>
@@ -9,8 +9,7 @@
 
   <p>
     <%= text_field_tag(:nombre,@administrador.nombre )%>
-    <br>
-    <font color="#0080FF" size="2">
+    <font class="ejemplo">
       Debe tener minimo 15 caracteres.
     </font>
   </p>
@@ -20,8 +19,7 @@
 
   <p>
     <%= text_field_tag(:apellido,@administrador.apellido)%>
-    <br>
-    <font color="#0080FF" size="2">
+    <font class="ejemplo">
       Debe tener minimo 15 caracteres.
     </font>
   </p>
@@ -31,16 +29,16 @@
 
   <p>
     <%= text_field_tag(:correo, @administrador.correo)%>
-    <br>
-    <font color="#0080FF" size="2">
+    <font class="ejemplo">
       Debe seguri con el formato aaa123@algo.com
     </font>
   </p>
+  <p></p>
+  <p></p> 
   <%= submit_tag  "Guardar" ,:class=>"boton", :confirm => "Esta usted seguro que quiere cambiar su datos?" %>
   <p></p>
-  
-
 <% end %>
 
-<%= button_to  "volver atras" ,{:action=>"listo_admin"},:class=>"boton"
+<%= button_to  "Atras" ,{:action=>"listo_admin"},:class=>"boton"
     %>
+</div>
